@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<form action="">
+		<label for="firstName">First Name</label>
+		<input name="first" id="firstName" type="text" placeholder="First Name">
+		<label for="lastName">Last Name</label>
+		<input name="last" id="lastName" type="text" placeholder="Last Name">
+		<label for="lastName">Last Name</label>
+
+		<label for="genderm">Male</label>
+		<input name="gender" id="genderm" type="radio" value="male">
+		<label for="genderf">Female</label>
+		<input name="gender" id="genderf" type="radio" value="female">
+
+		<label for="email">Email</label>
+		<input name=email id="email" type="email" placeholder="email@domain.com">
+
+		<label for="pw">Password</label>
+		<input pattern=".{5,15}" required title="Password must be 5 to 15 characters" name="pw" id="pw" type="password">
+
+		<Label for="birthYear">Birth Year</Label>
+		<select name="birthyear" id="birthYear">
+				<option value="1900">Year</option>
+			<option value="1900">1900</option>
+			<option value="2000">2000</option>
+		</select>
+
+		<label for="agree">I agree blah blah blah</label>
+		<input type="checkbox" name="agree" id="agree" value="true">
+
+		<input type="submit">
+	</form>
+</body>
+</html>
