@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+
+	<button>Click Me</button>
+	
+
+
+	<script>
+	var body = document.querySelector('body');
+	body.addEventListener('click', changeColor);
+
+	function changeColor(){
+		var bg = body.getAttribute('style');
+		console.log(bg);
+		if(!bg){
+		body.style = 'background-color: purple';
+		} else {
+			body.style = '';
+		}
+	}
+	
+	</script>
+</body>
+</html>
