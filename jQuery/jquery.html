@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+	<title>Document</title>
+</head>
+<body>
+	<h1>jQuery Demo</h1>
+	<img src="https://picsum.photos/800/600?image=1084" alt="">
+	<img src="https://picsum.photos/800/600?image=1083" alt="">
+	<img src="https://picsum.photos/800/600?image=1082" alt="">
+
+	<input type="text" placeholder="your name">
+
+	<ul>
+		<li>Alligator</li>
+		<li>Cougar</li>
+		<li>Deer</li>
+		<li>Zebra</li>
+	</ul>
+<script>
+	console.log($('ul').text());
+	$('h1').text('Changed Text');
+	console.log($('ul').html());
+	$('ul').html('<li>I hacked your list</li>');
+	//setter, pass two args
+	$('img').css("width", "200px");
+	$('img').attr('alt', 'random image');
+	$('img').last().attr('height', '400px');
+	//getter, just supply attribute
+	console.log($('img').attr('alt'));
+	$('input').attr('type', '');
+	//value setter
+	$('input').val("Mikey")
+	//value getter
+	console.log($('input').val());
+
+</script>	
+</body>
+</html>
