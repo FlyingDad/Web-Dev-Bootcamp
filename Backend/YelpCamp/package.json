@@ -1,0 +1,22 @@
+{
+  "name": "yelpcamp",
+  "version": "1.0.0",
+  "description": "Web Dev Project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "flyingdad"
+  },
+  "keywords": [
+    "yelpcamp"
+  ],
+  "author": "Michael Kroth",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.3"
+  }
+}
