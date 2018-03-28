@@ -1,0 +1,17 @@
+<h1>Index Page</h1>
+
+<% blogs.forEach(function(blog) { %>
+				<div class="col-md-3 col-sm-6">
+					<div class="caption">
+							<h2><%= blog.title %></h2>
+					</div>
+					<div class="thumbnail">
+						<img src="<%= blog.image %>" alt="">
+						<span><%= blog.created %> </span>
+						<p><%= blog.body %></p>
+						<p>
+							<a href="/bloggrounds/<%= blog._id %>" class="btn btn-primary">More Info</a>
+						</p>
+					</div>
+				</div>
+				<%	}); %>
