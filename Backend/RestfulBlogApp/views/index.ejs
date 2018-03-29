@@ -1,17 +1,22 @@
-<h1>Index Page</h1>
+<% include ./partials/header.ejs %>
+
+
 
 <% blogs.forEach(function(blog) { %>
-				<div class="col-md-3 col-sm-6">
+				<div class="ui container main">
+					<h1>Index Page</h1>
 					<div class="caption">
 							<h2><%= blog.title %></h2>
 					</div>
-					<div class="thumbnail">
-						<img src="<%= blog.image %>" alt="">
-						<span><%= blog.created %> </span>
-						<p><%= blog.body %></p>
-						<p>
-							<a href="/bloggrounds/<%= blog._id %>" class="btn btn-primary">More Info</a>
-						</p>
+					<div>
+						<img class="ui medium image" src="<%= blog.image %>" alt="">
+						<span><%= blog.created.toDateString() %> </span>
+						<p><%- blog.body.substring(0, 100) %>...</p>
+						<a class="ui big violet basic button" href="/blogs/<%= blog._id %>">Read more</a>
+
 					</div>
 				</div>
 				<%	}); %>
+
+
+<% include ./partials/footer.ejs %>
