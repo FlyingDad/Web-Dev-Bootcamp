@@ -26,7 +26,11 @@ router.post('/', isLoggedIn,function(req, res){
 	var name = req.body.name;
 	var image = req.body.image;
 	var desc = req.body.description;
-	var campground = {name:name, image:image, description:desc};
+	var author = {
+		id: req.user._id,
+		username: req.user.username
+	};
+	var campground = {name:name, image:image, description:desc, author:author };
 	// Create a new campground and save to database
 	Campground.create(campground, function(err, newCamp){
 		if(err){
@@ -58,4 +62,29 @@ function isLoggedIn(req, res, next){
 	res.redirect('/login');
 }
 
+//EDIT CAMPGROUND ROUTE
+router.get('/:id/edit', function(req, res){
+	Campground.findById(req.params.id, function(err, foundCamp){
+		if(err){
+			res.redirect("/campgrounds");
+		} else {
+			res.render("campgrounds/edit", {camp: foundCamp});
+		}
+	});
+});
+
+//UPDATE ROUTE
+router.put("/:id", function(req, res){
+	//find and update campground
+
+	Campground.findByIdAndUpdate(req.params.id, req.body.campground, function(err, updatedCamp){
+		if(err){
+			res.redirect("/campgrounds");
+		} else {
+			res.redirect("/campgrounds/" + req.params.id);
+		}
+	});
+
+
+});
 module.exports = router;

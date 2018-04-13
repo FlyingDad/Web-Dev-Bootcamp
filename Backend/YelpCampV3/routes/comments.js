@@ -22,12 +22,16 @@ router.post('/', isLoggedIn, function(req, res){
 				console.log(err);
 				res.redirect("/campgounds");
 			} else {
-				console.log(req.body.comment);
+				//console.log(req.body.comment);
 				//create new comment
 				Comment.create(req.body.comment, function(err, comment){
 					if(err){
 						console.log(err);
 					} else {
+						//add username and id to comment
+						comment.author.id = req.user._id;
+						comment.author.username = req.user.username;
+						comment.save();
 						//connect comment to campground
 						campground.comments.push(comment);
 						campground.save();
