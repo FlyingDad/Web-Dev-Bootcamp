@@ -2,6 +2,7 @@ var express 		= require('express'),
 		app 				= express(),
 		bodyParser 	= require('body-parser'),
 		mongoose 		= require('mongoose'),
+		flash				= require('connect-flash'),
 		passport		= require('passport'),
 		LocalStrategy		= require('passport-local'),
 		methodOverride = require('method-override'),
@@ -29,12 +30,15 @@ app.use(require('express-session')({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
+
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 //Sends user data to every route
 app.use(function(req, res, next){
 	res.locals.user = req.user;
+	res.locals.message = req.flash('error', 'just testing');
 	next();
 });
 //================

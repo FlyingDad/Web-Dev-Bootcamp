@@ -11,7 +11,7 @@ middlewareObj.checkCampOwnership = function(req, res, next){
 			} else {
 				//does user own campground
 				if(foundCamp.author.id.equals(req.user._id)){
-					next()
+					next();
 				} else {
 					res.redirect("back");
 				}			
@@ -46,6 +46,7 @@ middlewareObj.isLoggedIn = function (req, res, next){
 		//console.log('authenticated');
 		return next();
 	}
+	req.flash('success', 'Please log in first!');
 	res.redirect('/login');
 };
 
